@@ -1,19 +1,22 @@
 require './auth.rb'
 require './lastfm.rb'
 require 'logger'
+require 'dotenv'
+
+Dotenv.load
 
 LOG = Logger.new('scrobbler.log')
 
-@api_key = 'cce078cd600da278c9ee4b2250b94529'
-@api_secret = '88366b6d0e2f513fb1f77117f40b7010'
+@api_key = ENV['LASTFM_API_KEY']
+@api_secret = ENV['LASTFM_SECRET']
 
 class Scrobbler < Lastfm
 
   def scrobble(session, attempt = 0)    
     scrobble = {
-      artist: 'The Bee Gees',
-      track: 'I Started A Joke',
-      album: '',
+      artist: 'The Beatles',
+      track: 'Hey Jude',
+      album: 'Past Masters Volume 2',
       timestamp: Time.now.to_i,
       method: 'track.scrobble',
       api_key: @api_key,

@@ -1,10 +1,11 @@
 require 'uri'
 require 'json'
 require 'digest'
+require 'net/http'
+require 'dotenv'
 
 class ServerErrorException < Exception
 end
-
 
 class BadSessionException < Exception
 end

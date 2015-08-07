@@ -1,6 +1,7 @@
 require './lastfm.rb'
 require 'json'
 require 'net/http'
+require 'dotenv'
 
 # \o/
 
